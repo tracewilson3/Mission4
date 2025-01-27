@@ -26,14 +26,16 @@ internal class Program
             if (player % 2 == 1)    //player X's turn
             {
                 bool isValid = false;
+                string rowInput = "";
+                string colInput = "";
 
                 while (!isValid)
                 {
                     Console.WriteLine("Player X's turn");
                     Console.Write("Enter your row (0-2): ");
-                    string rowInput = Console.ReadLine();
+                    rowInput = Console.ReadLine();
                     Console.Write("Enter your column (0-2): ");
-                    string colInput = Console.ReadLine();
+                    colInput = Console.ReadLine();
 
                     if (int.TryParse(rowInput, out int row) && int.TryParse(colInput, out int col))    //make sure the inputs are valid (0-2)
                     {
@@ -50,19 +52,25 @@ internal class Program
                     {
                         Console.WriteLine("Invalid input. Please enter numeric values between 0 and 2.");
                     }
+
+                    
                 }
+                
+                gameboard = UpdateBoard(player, int.Parse(rowInput) , int.Parse(colInput), gameboard);
+                
             }
             else if (player % 2 == 0)    //player O's turn
             {
                 bool isValid = false;
-
+                string rowInput = "";
+                string colInput = "";
                 while (!isValid)
                 {
                     Console.WriteLine("Player O's turn");
                     Console.Write("Enter your row (0-2): ");
-                    string rowInput = Console.ReadLine();
+                    rowInput = Console.ReadLine();
                     Console.Write("Enter your column (0-2): ");
-                    string colInput = Console.ReadLine();
+                    colInput = Console.ReadLine();
 
                     if (int.TryParse(rowInput, out int row) && int.TryParse(colInput, out int col))    //make sure the inputs are valid (0-2)
                     {
@@ -79,8 +87,10 @@ internal class Program
                     {
                         Console.WriteLine("Invalid input. Please enter numeric values between 0 and 2.");
                     }
+                    
                 }
-
+                
+                gameboard = UpdateBoard(player, int.Parse(rowInput) , int.Parse(colInput), gameboard);
             }
 
             //print the updated gameboard
