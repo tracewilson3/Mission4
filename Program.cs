@@ -83,6 +83,7 @@ internal class Program
 
             }
 
+            //print the updated gameboard
             TicTacTools.PrintBoard(gameboard);
 
             //check for winner
@@ -99,12 +100,14 @@ internal class Program
                 break; // Exit the loop if it's a tie
             }
 
-            
+            //switch turns
             player++;
 
 
         }
     }
+
+    //method to update the board according to the user inputs
     public static string[,] UpdateBoard(int player, int row, int col, string[,] gameboard)
     {
         bool updated = false;
@@ -112,22 +115,22 @@ internal class Program
         {
 
             // check if spot is already taken
-            if (gameboard[row, col] == "_")
+            if (gameboard[row, col] == "_") 
             {
-                if (player % 2 == 1)
+                if (player % 2 == 1) //update player X's chosen spot
                 {
                     gameboard[row, col] = "X";
                     
                 }
-                else if (player % 2 == 0)
+                else if (player % 2 == 0) //update player O's chosen spot
                 {
                     gameboard[row, col] = "O";
                     
                 }
-                updated = true;
+                updated = true; //update successful. exit loop.
             }
 
-            else
+            else //logic if spot is already taken
             {
                 Console.WriteLine("That spot is already taken.");
                 Console.Write("Enter your row (0-2): ");
@@ -136,10 +139,7 @@ internal class Program
                     
                 Console.Write("Enter your column (0-2): ");
                 col = int.Parse(Console.ReadLine());
-                /*if (!int.TryParse(row)|(!int.TryParse(col)))
-                {
-                    Console.WriteLine("Please enter a number between 0 and 2.");
-                }*/
+
                 if ((row < 0 || row > 2)|| (col < 0 || col > 2))
                 {
                     Console.WriteLine("That spot is out of range.");
