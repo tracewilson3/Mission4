@@ -13,3 +13,4 @@ string[,] board =
 };
 
 TicTacTools.PrintBoard(board);
+Console.WriteLine(TicTacTools.CheckWinner(board));
