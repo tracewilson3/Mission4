@@ -20,21 +20,22 @@ internal class Program
         string winner = "";
         int player = 1;
         
-
+        //while there is no winner and less than or equal to 9 turns, keep running the game.
         while (winner=="" && player<=9)
         {
-            if (player % 2 == 1)
+            if (player % 2 == 1)    //player X's turn
             {
                 bool isValid = false;
 
                 while (!isValid)
                 {
+                    Console.WriteLine("Player X's turn");
                     Console.Write("Enter your row (0-2): ");
                     string rowInput = Console.ReadLine();
                     Console.Write("Enter your column (0-2): ");
                     string colInput = Console.ReadLine();
 
-                    if (int.TryParse(rowInput, out int row) && int.TryParse(colInput, out int col))
+                    if (int.TryParse(rowInput, out int row) && int.TryParse(colInput, out int col))    //make sure the inputs are valid (0-2)
                     {
                         if (row >= 0 && row <= 2 && col >= 0 && col <= 2)
                         {
@@ -51,15 +52,34 @@ internal class Program
                     }
                 }
             }
-            else if (player % 2 == 0)
+            else if (player % 2 == 0)    //player O's turn
             {
-                int row = 0;
-                int col = 0;
-                Console.Write("Player O, enter your row (0-2): ");
-                row = int.Parse(Console.ReadLine());
-                Console.Write("Player O, enter your column (0-2): ");
-                col = int.Parse(Console.ReadLine());
-                gameboard = UpdateBoard(player, row, col, gameboard);
+                bool isValid = false;
+
+                while (!isValid)
+                {
+                    Console.WriteLine("Player O's turn");
+                    Console.Write("Enter your row (0-2): ");
+                    string rowInput = Console.ReadLine();
+                    Console.Write("Enter your column (0-2): ");
+                    string colInput = Console.ReadLine();
+
+                    if (int.TryParse(rowInput, out int row) && int.TryParse(colInput, out int col))    //make sure the inputs are valid (0-2)
+                    {
+                        if (row >= 0 && row <= 2 && col >= 0 && col <= 2)
+                        {
+                            isValid = true; // Valid input
+                        }
+                        else
+                        {
+                            Console.WriteLine("That spot is out of range. Please try again.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter numeric values between 0 and 2.");
+                    }
+                }
 
             }
 
