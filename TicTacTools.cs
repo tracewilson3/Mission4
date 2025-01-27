@@ -1,7 +1,7 @@
 
 namespace Mission4;
 
-public class TicTacTools
+public static class TicTacTools
 {
 
     public static void PrintBoard(string[,] board)
@@ -67,7 +67,7 @@ public class TicTacTools
         }
 
         // If no winner, return "None"
-        return "None";
+        return "";
     }
 }
 
