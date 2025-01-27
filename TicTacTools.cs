@@ -2,5 +2,16 @@ namespace Mission4;
 
 internal class TicTacTools
 {
-    Console.WriteLine('test')
+    string[,] board =
+    {
+        { "_", "_", "_" },
+        { "_", "_", "_" },
+        { "_", "_", "_" }
+    };
+
+
+
+
+
+
 }
