@@ -4,7 +4,7 @@ namespace Mission4;
 public static class TicTacTools
 {
 
-    public static void PrintBoard(string[,] board)
+    public static void PrintBoard(string[,] board) //method to print the gameboard
     {
         int rows = board.GetLength(0);
         int cols = board.GetLength(1);
@@ -33,7 +33,7 @@ public static class TicTacTools
         }
     }
 
-    public static string CheckWinner(string[,] board)
+    public static string CheckWinner(string[,] board)    //method to check for a winner after each turn
     {
         int rows = board.GetLength(0);
         int cols = board.GetLength(1);
@@ -66,7 +66,7 @@ public static class TicTacTools
             return board[0, 2];
         }
 
-        // If no winner, return "None"
+        // If no winner, return ""
         return "";
     }
 }
